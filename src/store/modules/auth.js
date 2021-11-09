@@ -19,7 +19,7 @@ const getters = {
 }
 
 const actions = {
-    async handleLogin({ commit }, { email, password }) {
+  async handleLogin({ commit }, { email, password }) {
         const response = await httpRequest('post', '/api/auth/login', {
             email: email,
             password: password,
@@ -62,7 +62,8 @@ const actions = {
 
         commit('SET_USER_DETAILS', response.data)
     },
-    async handleEmailAvailability(_, email) {
+  async handleEmailAvailability(_, email) {
+    alert("handleEmailAvailability");
         const response = await httpRequest(
             'post',
             '/api/auth/show-email-availability',

@@ -28,8 +28,8 @@ export function createURLFromBlob(blob) {
 }
 
 export const handleVuexApiCall = async (vuexAction, payload) => {
-    try {
-        const data = await vuexAction(payload)
+  try {
+     const data = await vuexAction(payload)
         return { success: true, data }
     } catch (err) {
         console.log(err)

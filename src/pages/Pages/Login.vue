@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-      <ValidationObserver v-slot="{ handleSubmit }">
-        <form @submit.prevent="handleSubmit(submit)">
+      <ValidationObserver ref="loginForm">
+        <form >
           <card class="card-login card-white">
             <template slot="header">
               <img src="img/card-primary.png" alt="" />
@@ -44,8 +44,8 @@
             </div>
 
             <div slot="footer">
-              <base-button native-type="submit" type="primary" class="mb-3" size="lg" block>
-                Get Started
+              <base-button native-type="submit" type="primary" class="mb-3" size="lg" @click="submit" block>
+                Login
               </base-button>
               <div class="pull-left">
                 <h6>
@@ -56,7 +56,7 @@
               </div>
 
               <div class="pull-right">
-                <h6><a href="#pablo" class="link footer-link">Need Help?</a></h6>
+               
               </div>
             </div>
           </card>
@@ -66,10 +66,11 @@
   </div>
 </template>
 <script>
-
+import Vue from 'vue'
 import { extend } from "vee-validate";
 import { required, email, min } from "vee-validate/dist/rules";
-
+import {mapActions} from 'vuex'
+import { handleVuexApiCall } from 'src/util/helper'
 extend("email", email);
 extend("min", min);
 
@@ -84,8 +85,17 @@ export default {
     };
   },
   methods: {
-    submit() {
-      alert("Form has been submitted!");
+    ...mapActions(['handleLogin']),
+   async submit() {
+     
+          const valid = await this.$refs.loginForm.validate()
+      if (!valid) return
+
+      this.isLoading = true
+      const result = await handleVuexApiCall(this.handleLogin, {email: this.email, password: this.password})
+
+      if (result.success) this.$router.push({name: 'Pages'}).catch(err => err)
+      else Vue.$toast.open({ message: result.error.message, type: result.error.type })
     }
   }
 };

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.a0181282ce8a50734b65876c86e87574.js"
+  "/precache-manifest.b44da0007d63ad554fff73be12b5b430.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue-black-dashboard-pro"});

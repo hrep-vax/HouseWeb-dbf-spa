@@ -94,9 +94,8 @@ extend('size', {...size})
 extend('unique', {
   validate: async (value) => {
     let available = true
-
     try {
-      available = await store.dispatch('handleEmailAvailability', value)
+      available = await store.dispatch('handleEmailAvailability', value) //para san po ito? -lei
     } catch (err) {
       console.error(err)
     }

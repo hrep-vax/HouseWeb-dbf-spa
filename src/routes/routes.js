@@ -10,21 +10,7 @@ const Calendar = () =>
 const Charts = () =>
   import(/* webpackChunkName: "dashboard" */ 'src/pages/Charts.vue');
 
-// Components pages
-const Buttons = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Buttons.vue');
-const GridSystem = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/GridSystem.vue');
-const Panels = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Panels.vue');
-const SweetAlert = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/SweetAlert.vue');
-const Notifications = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Notifications.vue');
-const Icons = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Icons.vue');
-const Typography = () =>
-  import(/* webpackChunkName: "components" */ 'src/pages/Components/Typography.vue');
+
 
 // Dashboard pages
 const Dashboard = () =>
@@ -68,129 +54,7 @@ const ExtendedTables = () =>
   import(/* webpackChunkName: "tables" */ 'src/pages/Tables/ExtendedTables.vue');
 const PaginatedTables = () =>
   import(/* webpackChunkName: "tables" */ 'src/pages/Tables/PaginatedTables.vue');
-let componentsMenu = {
-  path: '/components',
-  component: DashboardLayout,
-  redirect: '/components/buttons',
-  name: 'Components',
-  children: [
-    {
-      path: 'buttons',
-      name: 'Buttons',
-      components: { default: Buttons }
-    },
-    {
-      path: 'grid-system',
-      name: 'Grid System',
-      components: { default: GridSystem }
-    },
-    {
-      path: 'panels',
-      name: 'Panels',
-      components: { default: Panels }
-    },
-    {
-      path: 'sweet-alert',
-      name: 'Sweet Alert',
-      components: { default: SweetAlert }
-    },
-    {
-      path: 'notifications',
-      name: 'Notifications',
-      components: { default: Notifications }
-    },
-    {
-      path: 'icons',
-      name: 'Icons',
-      components: { default: Icons }
-    },
-    {
-      path: 'typography',
-      name: 'Typography',
-      components: { default: Typography }
-    }
-  ]
-};
-let formsMenu = {
-  path: '/forms',
-  component: DashboardLayout,
-  redirect: '/forms/regular',
-  name: 'Forms',
-  children: [
-    {
-      path: 'regular',
-      name: 'Regular Forms',
-      components: { default: RegularForms }
-    },
-    {
-      path: 'extended',
-      name: 'Extended Forms',
-      components: { default: ExtendedForms }
-    },
-    {
-      path: 'validation',
-      name: 'Validation Forms',
-      components: { default: ValidationForms }
-    },
-    {
-      path: 'wizard',
-      name: 'Wizard',
-      components: { default: Wizard }
-    }
-  ]
-};
 
-let tablesMenu = {
-  path: '/table-list',
-  component: DashboardLayout,
-  redirect: '/table-list/regular',
-  name: 'Tables',
-  children: [
-    {
-      path: 'regular',
-      name: 'Regular Tables',
-      components: { default: RegularTables }
-    },
-    {
-      path: 'extended',
-      name: 'Extended Tables',
-      components: { default: ExtendedTables }
-    },
-    {
-      path: 'paginated',
-      name: 'Paginated Tables',
-      components: { default: PaginatedTables }
-    }
-  ]
-};
-
-let mapsMenu = {
-  path: '/maps',
-  component: DashboardLayout,
-  name: 'Maps',
-  redirect: '/maps/google',
-  children: [
-    {
-      path: 'google',
-      name: 'Google Maps',
-      components: { default: GoogleMaps }
-    },
-    {
-      path: 'full-screen',
-      name: 'Full Screen Map',
-      meta: {
-        hideContent: true,
-        hideFooter: true
-      },
-      components: { default: FullScreenMap }
-    },
-    {
-      path: 'vector-map',
-      name: 'Vector Map',
-      components: { default: VectorMaps }
-    }
-  ]
-};
 
 let pagesMenu = {
   path: '/pages',
@@ -231,6 +95,7 @@ let authPages = {
       name: 'Register',
       component: Register
     },
+
   ]
 };
 
@@ -240,17 +105,13 @@ const routes = [
     redirect: '/login',
     name: 'Login'
   },
-  componentsMenu,
-  formsMenu,
-  tablesMenu,
-  mapsMenu,
   pagesMenu,
   authPages,
   {
-    path: '/',
-    component: DashboardLayout,
-    redirect: '/dashboard',
-    name: 'Dashboard layout',
+    path: '/pages',
+    component: pagesMenu,
+    redirect: '/pages/user',
+    name: 'Pages',
     children: [
       {
         path: 'dashboard',
