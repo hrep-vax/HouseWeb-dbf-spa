@@ -231,14 +231,24 @@ let authPages = {
       name: 'Register',
       component: Register
     },
+    {
+      path: '/pricing',
+      name: 'Pricing',
+      component: Pricing
+    },
+    {
+      path: '/lock',
+      name: 'Lock',
+      component: Lock
+    }
   ]
 };
 
 const routes = [
   {
     path: '/',
-    redirect: '/login',
-    name: 'Login'
+    redirect: '/dashboard',
+    name: 'Home'
   },
   componentsMenu,
   formsMenu,

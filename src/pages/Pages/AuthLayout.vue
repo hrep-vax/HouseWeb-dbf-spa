@@ -12,11 +12,7 @@
       </div>
 
       <ul class="navbar-nav">
-        <router-link class="nav-item" tag="li" to="/dashboard">
-          <a class="nav-link text-primary">
-            <i class="tim-icons icon-minimal-left"></i> Back to Dashboard
-          </a>
-        </router-link>
+        
         <router-link class="nav-item" tag="li" to="/register">
           <a class="nav-link">
             <i class="tim-icons icon-laptop"></i> Register
@@ -29,15 +25,7 @@
           </a>
         </router-link>
 
-        <router-link class="nav-item" tag="li" to="/pricing">
-          <a class="nav-link"> <i class="tim-icons icon-coins"></i> Pricing </a>
-        </router-link>
-
-        <router-link class="nav-item" tag="li" to="/lock">
-          <a class="nav-link">
-            <i class="tim-icons icon-lock-circle"></i> Lock
-          </a>
-        </router-link>
+        
       </ul>
     </base-nav>
 
@@ -54,49 +42,11 @@
         <footer class="footer">
           <div class="container-fluid">
             <nav>
-              <ul class="nav">
-                <li class="nav-item">
-                  <a
-                    href="https://www.creative-tim.com"
-                    target="_blank"
-                    rel="noopener"
-                    class="nav-link"
-                  >
-                    Creative Tim
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    href="http://presentation.creative-tim.com"
-                    target="_blank"
-                    rel="noopener"
-                    class="nav-link"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    href="http://blog.creative-tim.com"
-                    target="_blank"
-                    rel="noopener"
-                    class="nav-link"
-                  >
-                    Blog
-                  </a>
-                </li>
-              </ul>
+             
             </nav>
             <div class="copyright">
-              &copy; {{ year }}, made with
-              <i class="tim-icons icon-heart-2"></i> by
-              <a
-                href="https://www.creative-tim.com/?ref=vbdp-vuejs"
-                target="_blank"
-                rel="noopener"
-                >Creative Tim</a
-              >
-              for a better web.
+              &copy; 
+              Information and Communication Technology Service, {{ year }} 
             </div>
           </div>
         </footer>
@@ -124,7 +74,7 @@ export default {
       showMenu: false,
       menuTransitionDuration: 250,
       pageTransitionDuration: 200,
-      year: new Date().getFullYear(),
+      year: 2021,
       pageClass: 'login-page'
     };
   },
