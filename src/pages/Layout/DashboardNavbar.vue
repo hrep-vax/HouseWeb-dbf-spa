@@ -109,7 +109,7 @@
         </li>
         <div class="dropdown-divider"></div>
         <li class="nav-link">
-          <a href="#" class="nav-item dropdown-item">Log out</a>
+          <a href="#" class="nav-item dropdown-item"  v-on:click="logout">Log out</a>
         </li>
       </base-dropdown>
     </ul>
@@ -118,6 +118,9 @@
 <script>
 import { BaseNav, Modal } from '@/components';
 import SidebarToggleButton from './SidebarToggleButton';
+import {mapActions} from 'vuex'
+import Vue from 'vue'
+import { handleVuexApiCall } from 'src/util/helper'
 
 export default {
   components: {
@@ -143,6 +146,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['handleLogout']),
     capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
@@ -160,6 +164,17 @@ export default {
     },
     toggleMenu() {
       this.showMenu = !this.showMenu;
+    },
+    async logout() {
+
+      this.isLoading = true
+
+      const result = await handleVuexApiCall(this.handleLogout, {})
+
+      if (result.success) this.$router.push({name: 'Login'}).catch(err => err)
+      else Vue.$toast.open({ message: result.error.message, type: result.error.type })
+
+      this.isLoading = false
     }
   }
 };
