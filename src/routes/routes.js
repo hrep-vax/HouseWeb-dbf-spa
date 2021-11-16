@@ -31,9 +31,12 @@ const FullScreenMap = () =>
 const VectorMaps = () =>
   import(/* webpackChunkName: "extra" */ 'src/pages/Maps/VectorMaps.vue');
 
-// Pages
+//Pages
+// const User = () =>
+//   import(/* webpackChunkName: "pages" */ 'src/pages/Pages/UserProfile.vue');
 const User = () =>
-  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/UserProfile.vue');
+  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/CheckViewForm.vue');
+
 const Pricing = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/Pages/Pricing.vue');
 const TimeLine = () =>

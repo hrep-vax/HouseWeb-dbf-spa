@@ -19,6 +19,7 @@ const actions = {
       payload,
       localStorage.getItem('WEB_APP_KIT_TOKEN')
     )
+    console.log(response.data);
     return response.data
   },
  async handleDbfAdd(_, payload) {
