@@ -19,9 +19,9 @@ const getters = {
 }
 
 const actions = {
-  async handleLogin({ commit }, { email, password }) {
+  async handleLogin({ commit }, { hrep_id, password }) {
         const response = await httpRequest('post', '/api/auth/login', {
-            email: email,
+            hrep_id: hrep_id,
             password: password,
         })
 

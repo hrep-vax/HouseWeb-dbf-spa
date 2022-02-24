@@ -11,16 +11,16 @@
 
             <div>
               <ValidationProvider
-                name="email"
-                rules="required|email"
+                name="hrep_id"
+                rules="required"
                 v-slot="{ passed, failed, errors }"
               >
               <base-input
                 required
-                v-model="email"
-                type="email"
-                placeholder="Email"
-                addon-left-icon="tim-icons icon-email-85"
+                v-model="hrep_id"
+                type="hrep_id"
+                placeholder="HREP ID"
+                addon-left-icon="tim-icons icon-badge"
                 :error="errors[0]"
                 :class="[{ 'has-success': passed }, { 'has-danger': failed }]">
               </base-input>
@@ -68,10 +68,9 @@
 <script>
 import Vue from 'vue'
 import { extend } from "vee-validate";
-import { required, email, min } from "vee-validate/dist/rules";
+import { required, min } from "vee-validate/dist/rules";
 import {mapActions} from 'vuex'
 import { handleVuexApiCall } from 'src/util/helper'
-extend("email", email);
 extend("min", min);
 
 extend("required", required);
@@ -79,7 +78,7 @@ extend("required", required);
 export default {
   data() {
     return {
-      email: "",
+      hrep_id: "",
       password: "",
       subscribe: true
     };
@@ -92,7 +91,7 @@ export default {
       if (!valid) return
 
       this.isLoading = true
-      const result = await handleVuexApiCall(this.handleLogin, {email: this.email, password: this.password})
+      const result = await handleVuexApiCall(this.handleLogin, {hrep_id: this.hrep_id, password: this.password})
 
       if (result.success) this.$router.push({name: 'Pages'}).catch(err => err)
       else Vue.$toast.open({ message: result.error.message, type: result.error.type })
