@@ -1,3 +1,8 @@
+import Vuex from 'vuex'
+import Vue from 'vue'
+
+Vue.use(Vuex)
+
 import { httpRequest } from '../../util/helper.js'
 
 const state = {
@@ -14,11 +19,12 @@ const mutations = {
     }
 }
 
-const getters = {
-    getTokenIsExpiredState: (state) => state.tokenIsExpired
+const getters = { //pwede dito i-access un sate or pwede diretso sa state 
+  getTokenIsExpiredState: (state) => state.tokenIsExpired,
+  getUserDetails: (state) => state.userDetails
 }
 
-const actions = {
+const actions = { //functions tatawagin dito un mutations kung may kelangan baguhin
   async handleLogin({ commit }, { hrep_id, password }) {
         const response = await httpRequest('post', '/api/auth/login', {
             hrep_id: hrep_id,
@@ -52,7 +58,6 @@ const actions = {
             '/api/auth/register',
             userDetails
         )
-
         //Save the user details and token in the browser
         localStorage.setItem(
             'WEB_APP_KIT_USER',
@@ -83,5 +88,7 @@ const actions = {
         commit("SET_TOKEN_EXPIRATION_STATE", state)
     }
 }
-
-export default { state, getters, actions, mutations }
+// export default new Vuex.Store({
+// state, getters, actions, mutations  
+// });
+ export default { state, getters, actions, mutations }

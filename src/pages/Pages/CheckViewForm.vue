@@ -4,7 +4,7 @@
     <form>
       
 
-      <div class="row">
+      <div class="row" hidden>
 
         <div class="col-md-6">
           <base-input
@@ -48,7 +48,7 @@
         </div>
 
       
-      <base-button native-type="submit" type="primary" class="btn-fill" @click="submitForm">
+      <base-button native-type="submit" type="primary" class="btn-fill" @click="submitForm" hidden>
         Search
       </base-button>
     </form>
@@ -56,38 +56,36 @@
 </template>
 <script>
 import Vue from 'vue'
-import {mapActions} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 import { handleVuexApiCall } from 'src/util/helper'
+import store from "src/store/modules/auth.js";
 export default {
   data() {
     return {
-      //user: {
-        emp_id: '01789',
+        emp_id: '',
         code: '',
         amount:'',
         che_date:'',
         payee1: ''
         
-      //}
     };
   },
-  // methods: {
-  //   updateProfile() {
-  //     alert('Your data: ' + JSON.stringify(this.user));
-  //   }
-  // }
+mounted(){ //pagtwag ng async function
+this.submitForm()
+},
 
   methods: {
      ...mapActions([
-      'handleCheckShow',
+      'handleCheckShow'
     
     ]),
+
      async submitForm() {
-       //alert('method');
-       console.log('method');
+     const user = JSON.parse(localStorage.getItem('WEB_APP_KIT_USER'))
+       console.log(user.hrep_id);
+
       const payload = {
-        //"code": this.code
-        "emp_id": this.emp_id
+        "emp_id":user.hrep_id
       }
         const result = await handleVuexApiCall(this.handleCheckShow, payload)
 
@@ -97,8 +95,6 @@ export default {
                 
         var payee1 = result.data.check[0].payee1;
         this.checkarray = result.data.check
-       
-         
         this.payee1 = payee1;
        
       } 

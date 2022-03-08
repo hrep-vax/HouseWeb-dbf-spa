@@ -72,14 +72,14 @@
 </template>
 <script>
 import { BaseNav, Modal } from '@/components';
-import SidebarToggleButton from './SidebarToggleButton';
+// import SidebarToggleButton from './SidebarToggleButton';
 import {mapActions} from 'vuex'
 import Vue from 'vue'
 import { handleVuexApiCall } from 'src/util/helper'
 
 export default {
   components: {
-    SidebarToggleButton,
+    // SidebarToggleButton,
     BaseNav,
     Modal
   },
