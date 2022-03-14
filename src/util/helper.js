@@ -55,7 +55,7 @@ const getErrorObj = errorCode => {
             message = 'Your session is expired'
             break
         case 'INVALID_CREDENTIALS_ERROR':
-            message = 'Incorrect email or password'
+            message = 'Incorrect HREP ID or password'
             break
         case 'VALIDATION_ERROR':
             message = "We've encountered errors while validating your inputs"
