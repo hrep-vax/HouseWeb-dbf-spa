@@ -32,14 +32,12 @@
             <thead>
                 <tr>
                     <th>Amount</th>
-                    <th></th>
                     <th>Check Date</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="row in checkarray" :key="row.code">
                     <td>{{ row.amount }}</td>
-                    <td></td>
                     <td>{{ row.che_date }}</td>
                 </tr>
             </tbody>
