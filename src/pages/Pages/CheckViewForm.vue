@@ -4,9 +4,9 @@
     <form>
       
 
-      <div class="row" hidden>
+      <div class="row">
 
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <base-input
             type="text"
             label="Employee ID"
@@ -14,7 +14,7 @@
             v-model="emp_id"
           >
           </base-input>
-        </div>
+        </div> -->
         <div class="col-md-6">
           <base-input
             type="text"
