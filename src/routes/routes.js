@@ -10,15 +10,13 @@ const Dashboard = () =>
   import(/* webpackChunkName: "dashboard" */ 'src/pages/Dashboard/Dashboard.vue');
 import Widgets from 'src/pages/Widgets.vue';
 
-
-
-
-
 //Pages
 // const User = () =>
 //   import(/* webpackChunkName: "pages" */ 'src/pages/Pages/UserProfile.vue');
 const User = () =>
   import(/* webpackChunkName: "pages" */ 'src/pages/Pages/CheckViewForm.vue');
+  const Upload = () =>
+  import(/* webpackChunkName: "pages" */ 'src/pages/Pages/Upload.vue');
 
 
 const TimeLine = () =>
@@ -50,6 +48,11 @@ let pagesMenu = {
       path: 'rtl',
       name: 'RTL Page',
       components: { default: RTL }
+    },
+    {
+      path: 'upload',
+      name: 'Upload Page',
+      components: { default: Upload }
     }
   ]
 };
