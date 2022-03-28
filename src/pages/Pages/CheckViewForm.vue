@@ -20,7 +20,7 @@
             type="text"
             label="Payee Name"
             placeholder="Name"
-            v-model="payee1"
+            v-model="name"
           >
           </base-input>
         </div>
@@ -33,12 +33,14 @@
                 <tr>
                     <th>Amount</th>
                     <th>Check Date</th>
+                    <th>Check Type</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="row in checkarray" :key="row.code">
                     <td>{{ row.amount }}</td>
-                    <td>{{ row.che_date }}</td>
+                    <td>{{ row.check_date }}</td>
+                    <td>{{ row.descrip }}</td>
                 </tr>
             </tbody>
         </table>
@@ -64,7 +66,10 @@ export default {
         code: '',
         amount:'',
         che_date:'',
-        payee1: ''
+        payee1: '',
+        last_name: '',
+        first_name: '',
+        name: ''
         
     };
   },
@@ -91,9 +96,19 @@ this.submitForm()
          var length = result.data.check.length
         this.count = length
                 
-        var payee1 = result.data.check[0].payee1;
+        var last_name = result.data.check[0].last_name;
         this.checkarray = result.data.check
-        this.payee1 = payee1;
+        this.last_name = last_name;
+
+        var first_name = result.data.check[0].first_name;
+        this.checkarray = result.data.check
+        this.first_name = first_name;
+
+        this.name=this.first_name + ' ' + this.last_name
+
+        // var payee1 = result.data.check[0].payee1;
+        // this.checkarray = result.data.check
+        // this.payee1 = payee1;
        
       } 
        else Vue.$toast.open({ message: result.error.message, type: result.error.type })    

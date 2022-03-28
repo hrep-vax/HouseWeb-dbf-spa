@@ -6,7 +6,7 @@
     <div class="grid grid-cols-12 gap-6 mb-4 sm:mb-0">
     <div class="col-span-12">
       <div class="col-md-6">
-            <h4 class="card-title">DBF Type</h4>
+            <!-- <h4 class="card-title">DBF Type</h4>
             <div class="row">
               <div class="col-md-6">
                 <el-select
@@ -28,7 +28,7 @@
                   >
                   </el-option>
                 </el-select>
-              </div>
+              </div> -->
           
             </div>
           </div>
