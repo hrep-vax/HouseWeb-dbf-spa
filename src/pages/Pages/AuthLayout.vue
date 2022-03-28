@@ -8,12 +8,12 @@
       class="auth-navbar fixed-top"
     >
       <div slot="brand" class="navbar-wrapper">
-        <a class="navbar-brand" href="#" v-if="title">{{ title }}</a>
+        <a class="navbar-brand" href="#" v-if="title">Check Issuances</a>
       </div>
 
       <ul class="navbar-nav">
         
-        <router-link class="nav-item" tag="li" to="/register">
+        <!-- <router-link class="nav-item" tag="li" to="/register">
           <a class="nav-link">
             <i class="tim-icons icon-laptop"></i> Register
           </a>
@@ -23,7 +23,7 @@
           <a class="nav-link">
             <i class="tim-icons icon-single-02"></i> Login
           </a>
-        </router-link>
+        </router-link> -->
 
         
       </ul>

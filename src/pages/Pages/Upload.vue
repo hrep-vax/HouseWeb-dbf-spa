@@ -5,8 +5,8 @@
 
     <div class="grid grid-cols-12 gap-6 mb-4 sm:mb-0">
     <div class="col-span-12">
-      <div class="col-md-6">
-            <!-- <h4 class="card-title">DBF Type</h4>
+      <!-- <div class="col-md-6">
+           <h4 class="card-title">DBF Type</h4>
             <div class="row">
               <div class="col-md-6">
                 <el-select
@@ -28,23 +28,23 @@
                   >
                   </el-option>
                 </el-select>
-              </div> -->
+              </div> 
           
             </div>
-          </div>
+          </div> -->
           <br>
     <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" v-on:vdropzone-sending="sendingEvent"></vue-dropzone>
     <!-- <button v-on:click="triggerSend()">Send images</button> -->
     <br>
      
-     <div class="grid grid-cols-4 gap-4 mb-4 sm:mb-4">
+     <!-- <div class="grid grid-cols-4 gap-4 mb-4 sm:mb-4">
 
           <div class="col-span-2">                
             <base-button type="info" v-on:click="triggerSend()">
                Upload and Convert
               </base-button>
           </div>         
-        </div>
+        </div> -->
           
     </div>
     </div>

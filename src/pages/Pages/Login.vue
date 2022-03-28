@@ -25,13 +25,13 @@
             <base-button native-type="submit" type="primary" class="mb-3" size="lg" @click="submit" block>
               Login
             </base-button>
-            <div class="pull-left">
+            <!-- <div class="pull-left">
               <h6>
                 <router-link class="link footer-link" to="/register">
                   Create Account
                 </router-link>
               </h6>
-            </div>
+            </div> -->
 
             <div class="pull-right">
 
