@@ -4,7 +4,7 @@
     <form>
       
 
-      <div class="row">
+      <div class="row hidden">
 
         <!-- <div class="col-md-6">
           <base-input
@@ -15,12 +15,13 @@
           >
           </base-input>
         </div> -->
-        <div class="col-md-6">
+        <div class="col-md-6 hidden">
           <base-input
             type="text"
             label="Payee Name"
             placeholder="Name"
             v-model="name"
+            v-show="value2"
           >
           </base-input>
         </div>
@@ -69,7 +70,8 @@ export default {
         payee1: '',
         last_name: '',
         first_name: '',
-        name: ''
+        name: '',
+        value2: false
         
     };
   },
