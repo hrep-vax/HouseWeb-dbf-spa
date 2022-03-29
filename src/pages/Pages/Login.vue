@@ -87,24 +87,43 @@ export default {
       // get role redirect to User Page if regular user else direct to Upload Page if uploader
       const user = JSON.parse(localStorage.getItem('WEB_APP_KIT_USER'))
 
-      if (user.user_roles == "regular") {
-        if (result.success) this.$router.push({
-          name: 'Pages'
-        }).catch(err => err)
-        else Vue.$toast.open({
-          message: result.error.message,
-          type: result.error.type
-        })
 
-      } else {
-        if (result.success) this.$router.push({
+if (this.hrep_id == 'admin'){
+if (result.success) this.$router.push({
           name: 'Upload Page'
         }).catch(err => err)
         else Vue.$toast.open({
           message: result.error.message,
           type: result.error.type
         })
-      }
+}else{
+  if (result.success) this.$router.push({
+          name: 'Pages'
+        }).catch(err => err)
+        else Vue.$toast.open({
+          message: result.error.message,
+          type: result.error.type
+        })
+}
+
+      // if (user.user_roles == "regular") {
+      //   if (result.success) this.$router.push({
+      //     name: 'Pages'
+      //   }).catch(err => err)
+      //   else Vue.$toast.open({
+      //     message: result.error.message,
+      //     type: result.error.type
+      //   })
+
+      // } else {
+      //   if (result.success) this.$router.push({
+      //     name: 'Upload Page'
+      //   }).catch(err => err)
+      //   else Vue.$toast.open({
+      //     message: result.error.message,
+      //     type: result.error.type
+      //   })
+      // }
 
     }
   }
