@@ -59,7 +59,7 @@
         <template
           slot="title"
         >
-          <div> <i class="tim-icons icon-lock-circle"></i></div>
+          <div> <i class="tim-icons icon-single-02"></i></div>
           <b class="caret d-none d-lg-block d-xl-block"></b>
           <p class="d-lg-none">Log out</p>
         </template>
